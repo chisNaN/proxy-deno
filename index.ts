@@ -2,7 +2,7 @@ import { serve } from "https://deno.land/std@0.114.0/http/server.ts"
 import cors from 'https://deno.land/x/edge_cors/src/cors.ts'
 async function handler(_req: Request, options) {
   try{
-console.log(_req)
+console.log('url', _req.url)
 
     let body = JSON.stringify(data, null, 2)
    
