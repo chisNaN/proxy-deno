@@ -4,7 +4,7 @@ async function handler(_req: Request, options) {
   try{
 console.log('url', _req.url)
     let data = JSON.stringify({foo:'bar'})
-    if(req.url.includes('?')) {
+    if(_req.url.includes('?')) {
       const response = await fetch(_req.url.substr(_req.url.indexOf('=') + 1))
       data = await response.text()
     }
