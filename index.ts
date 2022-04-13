@@ -3,10 +3,13 @@ import cors from 'https://deno.land/x/edge_cors/src/cors.ts'
 async function handler(_req: Request, options) {
   try{
 console.log('url', _req.url)
-
-    let body = JSON.stringify(data, null, 2)
-   
-    return cors(_req, new Response(body, {
+    let data = JSON.stringify({foo:'bar'})
+    if(req.url.includes('?')) {
+      const response = await fetch(_req.url.substr(_req.url.indexOf('=') + 1))
+      data = await response.text()
+    }
+       
+    return cors(_req, new Response(data, {
       headers: { "content-type": "application/json; charset=utf-8" },
     }))
   }catch(error) {
