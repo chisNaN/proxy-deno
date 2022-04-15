@@ -6,6 +6,7 @@ console.log('url', _req.url)
     let data = JSON.stringify({foo:'bar'})
     if(_req.url.includes('?')) {
       const response = await fetch(_req.url.substr(_req.url.indexOf('=') + 1))
+      console.log(response)
       data = await response.text()
     }
        
