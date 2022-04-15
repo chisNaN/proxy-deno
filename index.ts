@@ -6,7 +6,7 @@ async function handler(_req: Request, options) {
 console.log('url', _req.url)
     let data = JSON.stringify({error:'Provide a valid http URL'})
     const url = new URL(_req.url)
-    const api = url.searchParams.get('url'))
+    const api = url.searchParams.get('url')
     if(api) {
       const response = await fetch(api)
       console.log(response)
