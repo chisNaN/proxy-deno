@@ -5,6 +5,8 @@ async function handler(_req: Request, options) {
     
 console.log('url', _req.url)
     let data = JSON.stringify({error:'Provide a valid http URL'})
+    const url = new URL(_req.url)
+    console.log('url => ',url.searchParams.get('url'))
     if(_req.url.includes('?')) {
       const response = await fetch(_req.url.substr(_req.url.indexOf('=') + 1))
       if ('x-deno-error' in response) {
