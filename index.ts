@@ -3,7 +3,7 @@ import cors from 'https://deno.land/x/edge_cors/src/cors.ts'
 async function handler(_req: Request, options) {
   try{
 console.log('url', _req.url)
-    let data = JSON.stringify({foo:'bar'})
+    let data = JSON.stringify({error:'Provide a valid http URL'})
     if(_req.url.includes('?')) {
       const response = await fetch(_req.url.substr(_req.url.indexOf('=') + 1))
       console.log(response)
