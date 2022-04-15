@@ -15,7 +15,7 @@ console.log('url', _req.url)
     }))
   }catch(error) {
     console.log('error', error)
-    return cors(_req, new Response(JSON.stringify({error:'bug'}, null, 2), {
+    return cors(_req, new Response(JSON.stringify({error:'404 NOT FOUND'}, null, 2), {
     headers: { "content-type": "application/json; charset=utf-8" },
   }))
   }
