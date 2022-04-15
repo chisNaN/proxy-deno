@@ -14,7 +14,7 @@ console.log('url', _req.url)
       headers: { "content-type": "application/json; charset=utf-8" },
     }))
   }catch(error) {
-    return cors(_req, new Response(JSON.stringify(error, null, 2), {
+    return cors(_req, new Response(JSON.stringify({error:'bug', null, 2), {
     headers: { "content-type": "application/json; charset=utf-8" },
   }))
   }
