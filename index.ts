@@ -8,7 +8,7 @@ console.log('url', _req.url)
     if(_req.url.includes('?')) {
       const response = await fetch(_req.url.substr(_req.url.indexOf('=') + 1))
       if ('x-deno-error' in response) {
-        return cors(_req, new Response(JSON.stringify({error: response.['x-deno-error']}, null, 2), {
+        return cors(_req, new Response(JSON.stringify({error: response['x-deno-error']}, null, 2), {
     headers: { "content-type": "application/json; charset=utf-8" },
   }))
       }
