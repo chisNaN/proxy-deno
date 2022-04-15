@@ -6,14 +6,9 @@ async function handler(_req: Request, options) {
 console.log('url', _req.url)
     let data = JSON.stringify({error:'Provide a valid http URL'})
     const url = new URL(_req.url)
-    console.log('url => ',url.searchParams.get('url'))
-    if(_req.url.includes('?')) {
-      const response = await fetch(_req.url.substr(_req.url.indexOf('=') + 1))
-      if ('x-deno-error' in response) {
-        return cors(_req, new Response(JSON.stringify({error: response['x-deno-error']}, null, 2), {
-    headers: { "content-type": "application/json; charset=utf-8" },
-  }))
-      }
+    const api = url.searchParams.get('url'))
+    if(api) {
+      const response = await fetch(api)
       console.log(response)
       data = await response.text()
     }
